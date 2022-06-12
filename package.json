@@ -1,0 +1,34 @@
+{
+  "name": "openradiomap-mapstyle",
+  "version": "0.1.0",
+  "description": "The OpenRadioMap Map Style",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpenRadioMap/map-style.git"
+  },
+  "scripts": {
+    "code_format": "npx prettier --write . && npx svgo -f icons/ --config configs/config.svgo.cjs",
+    "clean": "rm -rf dist",
+    "presprites": "rm -rf dist/sprites",
+    "sprites": "node scripts/sprites.js",
+    "start": "run-s clean sprites serve",
+    "serve": "node scripts/serve.js",
+    "build:code": "node scripts/build.js",
+    "build": "run-s clean sprites build:code"
+  },
+  "author": "Darcy Buskermolen",
+  "dependencies": {
+    "@basemaps/sprites": "^6.28.1",
+    "env": "^0.0.2",
+    "glob": "^8.0.3",
+    "npm-run-all": "^4.1.5"
+  },
+  "devDependencies": {
+    "create-serve": "^1.0.1",
+    "esbuild": "^0.14.43",
+    "maplibre-gl": "^2.2.0-pre.2",
+    "prettier": "^2.6.2",
+    "svgo": "^2.8.0"
+  }
+}
