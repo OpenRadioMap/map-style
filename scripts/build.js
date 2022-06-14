@@ -4,11 +4,10 @@ import esbuild from 'esbuild';
 
 const isMain = import.meta.url === `file://${process.argv[1]}`;
 
-export async function build(updateHook) {
+export async function build(updateHook, buildOptions = {}) {
   const watch = updateHook && { onRebuild(error, result) {
     if (error)
     {
-      console.error(error);
       return;
     }
     console.log(Date.now());
@@ -25,12 +24,14 @@ export async function build(updateHook) {
       minify: true,
       sourcemap: true,
       outdir: 'dist',
+      logLevel: "info",
       watch,
+      ...buildOptions,
     }),
     copyFile('index.html', 'dist/index.html'),
   ]);
 }
 
 if (isMain) {
-  await build();
+  await build().catch(() => process.exit(1));
 }
