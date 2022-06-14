@@ -10,13 +10,13 @@ Go to Account->Keys and create a key to paste here:
 */
 
 
-const MAPTILER_KEY = "<yourAPIkey>";
+const MAPTILER_KEY = "<yourMapTilerKey>";
 
-const OPENMAPTILES_URL = `https://api.maptiler.com/tiles/v3-openmaptiles/tiles.json?key=${MAPTILER_KEY}`;
-const CONTOURS_URL     = `https://api.maptiler.com/tiles/contours/tiles.json?key=${MAPTILER_KEY}`;
-const LANDCOVER_URL    = `https://api.maptiler.com/tiles/landcover/tiles.json?key=${MAPTILER_KEY}`;
-const TERRAIN_URL      = `https://api.maptiler.com/tiles/terrain-rgb/tiles.json?key=${MAPTILER_KEY}`;
-const RFCOVERAGE_URL   = `https://api.openradiomap.com/tiles/transmitters/tiles.json`;
+const OPENMAPTILES_URL = `http://demo.openradiomap.com/tiles/v3-openmaptiles/tiles.json?key=${MAPTILER_KEY}`;
+const CONTOURS_URL     = `http://demo.openradiomap.com/tiles/contours/tiles.json?key=${MAPTILER_KEY}`;
+const LANDCOVER_URL    = `http://demo.openradiomap.com/tiles/landcover/tiles.json?key=${MAPTILER_KEY}`;
+const TERRAIN_URL      = `http://demo.openradiomap.com/tiles/terrain-rgb/tiles.json?key=${MAPTILER_KEY}`;
+const RFCOVERAGE_URL   = `http://api.openradiomap.com/tiles/transmitters/tiles.json`;
 
 const ATTRIBUTION_LOGO = `
 <a href="https://www.maptiler.com/">

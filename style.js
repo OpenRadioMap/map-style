@@ -3,6 +3,8 @@
 import * as maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 
+import * as search from "./search.js";
+
 import config from "./configs/config.js";
 
 import * as lyrBackground from "./layer/background.js";
@@ -109,14 +111,15 @@ var style = {
 
 
 var map = (window.map = new maplibregl.Map({
-  container: "map", // container id
+  container: "map",
   hash: true,
   antialias: true,
   style: style,
-  center: [-119, 48.5], // starting position [lng, lat]
-  zoom: 4, // starting zoom
+  center: [-119, 48.5],
+  zoom: 6,
   pitch: 52,
-  attributionControl: false,
+  cooperativeGestures: true,
+  attributionControl: false,  
 }));
 
 let attributionConfig = {
@@ -136,17 +139,19 @@ if (config.ATTRIBUTION_LOGO != undefined) {
     config.ATTRIBUTION_LOGO;
 }
 
-map.addControl(
-  new maplibregl.NavigationControl({
+map.addControl(new search.PhotonSearchControl(), "top-left");
+map.addControl(new maplibregl.NavigationControl(
+  {
     visualizePitch: true,
     showZoom: true,
-    showCompass: true}), 
-  "top-left");
+    showCompass: true
+  }), "top-left"
+);
 
-map.addControl(
-  new maplibregl.TerrainControl({
+map.addControl( new maplibregl.TerrainControl(
+  {
     source: 'terrainSource',
     exaggeration: 1.3
-  })
-);
+  }), "top-left");
+
 map.getCanvas().focus();
