@@ -61,7 +61,10 @@ ormLayers.push(
 ormLayers.push(lyrBuilding.building);
 ormLayers.push(lyrPoi.poi);
 
+ormLayers.push(lyrRFcoverage.rfCoverageLine);
+ormLayers.push(lyrRFcoverage.rfCoverageLabel);
 ormLayers.push(lyrRFcoverage.rfTransmitters);
+
 
 var getUrl = window.location;
 var baseUrl = getUrl.protocol + "//" + getUrl.host + getUrl.pathname;
@@ -98,7 +101,10 @@ var style = {
       type: "vector",
       url: config.RFCOVERAGE_URL,
     },
-
+    rfContourLine: {
+      type: "vector",
+      url: config.RFCONTOUR_URL,
+    },
   },
   sprite: new URL("sprites/sprite", baseUrl).href,
   light: {
@@ -140,6 +146,14 @@ if (config.ATTRIBUTION_LOGO != undefined) {
 }
 
 map.addControl(new search.PhotonSearchControl(), "top-left");
+map.addControl(new maplibregl.GeolocateControl({
+  positionOptions:
+  {
+    enableHighAccuracy: true
+  },
+  trackUserLocation: true
+}));
+
 map.addControl(new maplibregl.NavigationControl(
   {
     visualizePitch: true,

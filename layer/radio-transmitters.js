@@ -3,13 +3,13 @@ import * as label from "../constants/label.js";
 export const rfCoverageLine = {
   id: "rfcontourline",
   type: "line",
-  source: "rfcoverage",
-  "source-layer": "contours",
+  source: "rfContourLine",
+  "source-layer": "public.contours",
   minzoom: 12,
   filter: [
     "all",
-    ["<","value",200],
-    [">","value",1]
+    ["<","value",254],
+    [">","value",74]
   ],
   layout: {"visibility": "visible"},
   paint: {
@@ -23,19 +23,19 @@ export const rfCoverageLabel = {
   id: "rfcontourline_label",
   type: "symbol",
   metadata: {},
-  source: "rfcoverage",
-  "source-layer": "contours",
+  source: "rfContourLine",
+  "source-layer": "public.contours",
   minzoom: 14,
   filter: [
     "all",
     ["==", "$type", "LineString"],
-    ["<","value",200],
-    [">","value",1]
+    ["<","value",254],
+    [">","value",92]
   ],
   layout: {
     "text-font": ["Metropolis Bold"],
     "text-size": {"base": 1, "stops": [[15, 9.5], [20, 12]]},
-    "text-field": "{value}",
+    "text-field": ["to-string", ["-", 254, ["to-number", ["get", "value"]]]],
     visibility: "visible",
     "text-padding": 10,
     "symbol-placement": "line",

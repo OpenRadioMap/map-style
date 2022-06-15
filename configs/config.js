@@ -17,6 +17,7 @@ const CONTOURS_URL     = `http://demo.openradiomap.com/tiles/contours/tiles.json
 const LANDCOVER_URL    = `http://demo.openradiomap.com/tiles/landcover/tiles.json?key=${MAPTILER_KEY}`;
 const TERRAIN_URL      = `http://demo.openradiomap.com/tiles/terrain-rgb/tiles.json?key=${MAPTILER_KEY}`;
 const RFCOVERAGE_URL   = `http://api.openradiomap.com/tiles/transmitters/tiles.json`;
+const RFCONTOUR_URL    = `http://api.openradiomap.com/tiles/contours/tiles.json`;
 
 const ATTRIBUTION_LOGO = `
 <a href="https://www.maptiler.com/">
@@ -31,6 +32,7 @@ export default {
   TERRAIN_URL,
   LANDCOVER_URL,
   RFCOVERAGE_URL,
+  RFCONTOUR_URL,
   ATTRIBUTION_LOGO,
   ATTRIBUTION_TEXT,
 };
