@@ -5,11 +5,11 @@ export const rfCoverageLine = {
   type: "line",
   source: "rfContourLine",
   "source-layer": "public.contours",
-  minzoom: 12,
+  minzoom: 9,
   filter: [
     "all",
     ["<","value",254],
-    [">","value",74]
+    [">","value",118],
   ],
   layout: {"visibility": "visible"},
   paint: {
@@ -25,12 +25,12 @@ export const rfCoverageLabel = {
   metadata: {},
   source: "rfContourLine",
   "source-layer": "public.contours",
-  minzoom: 14,
+  minzoom: 12,
   filter: [
     "all",
     ["==", "$type", "LineString"],
     ["<","value",254],
-    [">","value",92]
+    [">","value",118],
   ],
   layout: {
     "text-font": ["Metropolis Bold"],
@@ -85,5 +85,22 @@ export const rfTransmitters = {
     "text-halo-color": {"stops": [[11,"rgba(255, 255, 255, 1)"],[15,"rgba(255, 255, 255, 0.56)"]]},
     "text-halo-width": {"stops": [[11,2],[15,1.3]]}
   }
+};
+
+export const rfServicePoly = {
+  id: "ServiceContour",
+  source: "rfPoloygons",
+  "source-layer": "public.layer_polygon",
+  minzoom: 5,
+  type: "fill",
+  paint: {
+    "fill-color": "rgba(111, 238, 188, 1)",
+    "fill-opacity": 0.25,
+    "fill-antialias": true,
+    "fill-translate": [1, 1]
+  },
+  layout: {
+    visibility: "visible"
+  },
 };
 

@@ -146,20 +146,30 @@ if (config.ATTRIBUTION_LOGO != undefined) {
 }
 
 map.addControl(new search.PhotonSearchControl(), "top-left");
-map.addControl(new maplibregl.GeolocateControl({
-  positionOptions:
+map.addControl(new maplibregl.GeolocateControl(
   {
-    enableHighAccuracy: true
-  },
-  trackUserLocation: true
-}));
+    positionOptions:
+    {
+      enableHighAccuracy: true
+    },
+    trackUserLocation: true
+  }), "top-left"
+);
 
 map.addControl(new maplibregl.NavigationControl(
   {
-    visualizePitch: true,
     showZoom: true,
     showCompass: true
   }), "top-left"
+);
+
+map.addControl(
+  new MapboxPitchToggleControl({
+    pitch: 70,
+    bearing: null,
+    minpitchzoom: null
+  }),
+  "top-left"
 );
 
 map.addControl( new maplibregl.TerrainControl(
