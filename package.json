@@ -19,7 +19,7 @@
   },
   "author": "Darcy Buskermolen",
   "dependencies": {
-    "@basemaps/sprites": "^7.0.0",
+    "@basemaps/sprites": "^7.1.0",
     "env": "^0.0.2",
     "glob": "^10.3.10",
     "npm-run-all": "^4.1.5"
