@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "create-serve": "^1.0.1",
-    "esbuild": "^0.27.2",
+    "esbuild": "^0.27.3",
     "maplibre-gl": "^5.17.0",
     "prettier": "^3.8.1",
     "svgo": "^4.0.0"
