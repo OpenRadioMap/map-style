@@ -28,7 +28,7 @@
     "create-serve": "^1.0.1",
     "esbuild": "^0.28.0",
     "maplibre-gl": "^5.22.0",
-    "prettier": "^3.8.1",
+    "prettier": "^3.8.2",
     "svgo": "^4.0.1"
   }
 }
